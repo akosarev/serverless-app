@@ -13,7 +13,7 @@ on:
 jobs:
 
   # This workflow contains a single job called "build"
-  build-cdk:
+  deploy-cdk:
     # Type of runner
     runs-on: ubuntu-latest
 
