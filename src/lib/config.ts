@@ -12,6 +12,8 @@ export interface EnvironmentConfig extends cdk.StackProps {
   };
   databaseName: string;
   lambdaName: string;
+  roleName: string;
+  policyName: string;
 }
 
 export const PROD_ACCOUNT = process.env.PROD_ACCOUNT;
@@ -30,7 +32,9 @@ export const cfg = {
     },
     stageName: "dev",
     databaseName: "serverless-nonprod",
-    lambdaName: "serverlessLambda-nonprod"
+    lambdaName: "serverlessLambda-nonprod",
+    roleName: "LambdaRole-nonprod",
+    policyName: "Policy-LambdaRole-nonprod"
   },
   prod: {
     env: {
@@ -44,7 +48,9 @@ export const cfg = {
     },
     stageName: "v1",
     databaseName: "serverless-prod",
-    lambdaName: "serverlessLambda-prod"
+    lambdaName: "serverlessLambda-prod",
+    roleName: "LambdaRole-prod",
+    policyName: "Policy-LambdaRole-prod"
   }
 };
 

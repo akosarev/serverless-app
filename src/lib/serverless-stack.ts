@@ -18,6 +18,7 @@ export class ServerlessStack extends cdk.Stack {
     const app = this.node.root;
 
     const lambdaPolicy = new iam.ManagedPolicy(this, "ManagedPolicy", {
+      policyName: cfg.policyName,
       path: "/self-service/serverless/",
       statements: [
         new iam.PolicyStatement({
@@ -61,6 +62,7 @@ export class ServerlessStack extends cdk.Stack {
     });
 
     const lambdaRole = new iam.Role(this, "serverlessLambdaRole", {
+      roleName: cfg.roleName
       assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"),
       managedPolicies: [lambdaPolicy],
       path: "/self-service/serverless/"
@@ -75,7 +77,8 @@ export class ServerlessStack extends cdk.Stack {
             bucketName: cfg.s3BucketName,
             encryption: s3.BucketEncryption.KMS_MANAGED,
             publicReadAccess: false,
-            blockPublicAccess: BlockPublicAccess.BLOCK_ALL
+            blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
+            removalPolicy: RemovalPolicy.DESTROY
         }
     );
 
@@ -87,6 +90,7 @@ export class ServerlessStack extends cdk.Stack {
       role: lambdaRole,
       timeout: cdk.Duration.seconds(30),
       environment: cfg.lambdaEnvironmentVars,
+
     });
 
     const s3PutEventSource = new lambdaEventSources.S3EventSource(bucket, {
@@ -101,6 +105,7 @@ export class ServerlessStack extends cdk.Stack {
       tableName: cfg.databaseName,
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST, // Use on-demand billing mode
       partitionKey: { name: "id", type: dynamodb.AttributeType.STRING },
+      removalPolicy: RemovalPolicy.DESTROY
     });
 
 
