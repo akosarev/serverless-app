@@ -9,6 +9,6 @@ const app = new cdk.App();
 
 const serverless = new ServerlessStack(
   app,
-  "serverless",
+  environment.stackName,
   environment
 );
