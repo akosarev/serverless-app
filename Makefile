@@ -68,4 +68,4 @@ deploy: ### Deploy serverless
 
 #### --------------------------------DESTROY--------------------------------------
 destroy: ### Destroy serverless
-	cd src && npm run cdk destroy ${STACK} -- --require-approval never
+	cd src && npm run cdk destroy ${STACK} -- --force
