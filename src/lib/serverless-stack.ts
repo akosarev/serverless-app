@@ -69,7 +69,7 @@ export class ServerlessStack extends cdk.Stack {
 
     const bucket = new s3.Bucket(
       this,
-      "serverlessBucket",
+      cfg.s3BucketName,
         {
             versioned: false,
             bucketName: cfg.s3BucketName,
@@ -80,6 +80,7 @@ export class ServerlessStack extends cdk.Stack {
     );
 
     const serverlessLambda = new lambda.Function(this, cfg.lambdaName, {
+      functionName: cfg.lambdaName,
       runtime: lambda.Runtime.PYTHON_3_8,
       code: lambda.Code.fromAsset("serverless_lambda"),
       handler: "app.handler",
