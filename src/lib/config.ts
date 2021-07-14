@@ -38,7 +38,7 @@ export const cfg = {
       region: "eu-west-1"
     },
     lambdaEnvironmentVars: {},
-    s3BucketName: "s3-serverless-prod",
+    s3BucketName: "s3-serverless-app-prod",
     tags: {
       Team: "Automation"
     },
