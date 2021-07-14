@@ -1,0 +1,12 @@
+**/.env/
+.venv/
+.vscode/
+.idea/
+**/__pycache__/
+**/cdk.out/
+**/.mypy_cache
+**/node_modules
+**/*.d.ts
+**/*.js
+**/cdk.context.json
+.coverage
