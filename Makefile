@@ -1,6 +1,5 @@
 PROJECT=serverless
 
-STACK="serverless"
 SERVERLESS_LAMBDA=src/serverless_lambda
 
 default: help
@@ -64,8 +63,8 @@ build: ##### Compile the CDK stack and synthesize into Cloudformation
 #### ---------------------------------DEPLOY--------------------------------------
 
 deploy: ### Deploy serverless
-	cd src && npm run cdk deploy ${STACK} -- --require-approval never || (echo "deployment for ${STACK} failed"; exit 1)
+	cd src && npm run cdk deploy ${ENV} -- --require-approval never || (echo "deployment for ${ENV} failed"; exit 1)
 
 #### --------------------------------DESTROY--------------------------------------
 destroy: ### Destroy serverless
-	cd src && npm run cdk destroy ${STACK} -- --force
+	cd src && npm run cdk destroy ${ENV} -- --force
