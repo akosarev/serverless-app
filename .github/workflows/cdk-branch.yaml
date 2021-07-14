@@ -65,5 +65,3 @@ jobs:
           make build
         env:
           ENV: nonprod
-          PROD_ACCOUNT: secrets.PROD_ACCOUNT
-          NONPROD_ACCOUNT: secrets.NONPROD_ACCOUNT
