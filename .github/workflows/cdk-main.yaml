@@ -1,4 +1,4 @@
-name: "Develop: Deploy to prod zone"
+name: "Main: Deploy to prod zone"
 
 # Controls when the workflow will run
 on:
