@@ -36,7 +36,7 @@ export const cfg = {
     lambdaName: "serverlessLambda-nonprod",
     roleName: "LambdaRole-nonprod",
     policyName: "Policy-LambdaRole-nonprod",
-    stackName: "Nonprod"
+    stackName: "nonprod"
   },
   prod: {
     env: {
@@ -53,7 +53,7 @@ export const cfg = {
     lambdaName: "serverlessLambda-prod",
     roleName: "LambdaRole-prod",
     policyName: "Policy-LambdaRole-prod",
-    stackName: "Prod"
+    stackName: "prod"
   }
 };
 
