@@ -1,8 +1,8 @@
 # serverless-app
 
-This is serverless application.
+This is a serverless application.
 
-##What inside:
+## What inside:
 ### S3 bucket
 S3 bucket without version history(easy to change in configuration)
 
@@ -16,26 +16,26 @@ Notification from s3 to lambda for every new file in it.
 Lambda which get content of file and put into DynamoDB
 
 ### Policy and Role for lambda
-The least privileges for lambda to get files and put into database.
+The least privileges for lambda to get files and put into a database.
 
 
 ### Makefile
 
 ```Makefile``` has everything inside.
 From tests to deploy/destroy.
-You can run make to see all option it has.
+You can run make to see all options it has.
 
 
 
 ## CDK
 
-This app is designed as CDK stack with all resources inside.
-```src``` directory has every resourse from above. 
-Depends on enviroment variables you can install as many copies of app as you want.
+This app is designed as a CDK stack with all resources inside.
+```src``` directory has every resource from above. 
+Depending on environment variables you can install as many copies of app as you want.
 
 
 # CI/CD
-CI/CD is done through Gitghub Actions
+CI/CD is done through Github Actions
 
 
 Development flow is:
@@ -46,19 +46,18 @@ For every push in any branch workflow ```cdk-branch.yaml``` runs test for
 python lambdas(mypy, pylint, black) and does cdk synth
 
 ## Develop:
-After merge any branch to develop workflow ```cdk-develop.yaml``` runs 
-deploy infrastructure to nonprod zone. It can be other account or shared account.
+After merging any branch to develop workflow ```cdk-develop.yaml``` runs 
+deploy infrastructure to nonprod zone. It can be another account or shared account.
 Depends on configuration.
 
 ## Main:
-After merge any branch to main workflow ```cdk-main.yaml``` runs 
+After merging any branch to the main workflow ```cdk-main.yaml``` runs 
 deploy infrastructure to prod zone.
 
 ## Destroy
 
-Destroy is extra feature here. You can do push to destroy branch to 
-runs ``cdk destroy`` for prod and nonprod environments.
+Destruction is an extra feature here. You can push to destroy branches to 
+run ``cdk destroy`` for prod and nonprod environments.
 This was done for test purposes, but of course you can use it for some cases.
-
 
 
